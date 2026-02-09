@@ -1,0 +1,23 @@
+<div style="height: 100px; background-color: pink;">
+  <app-nav></app-nav>
+</div>
+
+<p>{{ v1 }}</p>
+
+<img [src]="v2" alt="Image">
+
+<button (click)="fn()">Click me</button>
+
+<input [(ngModel)]="v3" type="text" />
+
+<div *ngIf="v4 > 5">
+  <p>Value of v4: {{ v4 }}</p>
+</div>
+
+<div *ngFor="let item of students1">
+  <p>{{ item.id }} - {{ item.name }} - {{ item.age }}</p>
+</div>
+
+<div *ngFor="let item of students2">
+  <p>{{ item.id }} - {{ item.name }}</p>
+</div>
