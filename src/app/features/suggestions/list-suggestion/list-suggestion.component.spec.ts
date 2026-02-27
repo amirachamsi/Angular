@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { Suggestion } from '../../models/suggestion';
+import { Suggestion } from '../../../models/suggestion';
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-list-suggestion',
   templateUrl: './list-suggestion.component.html',
   // Correction ici : ajout des crochets [] pour en faire un tableau (Array)
-  styleUrls: ['./list-suggestion.component.css'] 
+  styleUrls: ['./list-suggestion.component.css'],
+  imports: [RouterOutlet] 
 })
 export class ListSuggestionComponent {
 

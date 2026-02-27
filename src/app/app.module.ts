@@ -1,32 +1,40 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+// AJOUTEZ CETTE LIGNE (pour FormsModule et CommonModule)
+import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
-import { ListSuggestionComponent } from './core/list-suggestion/list-suggestion.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavComponent } from './nav/nav.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavComponent,
     FooterComponent,
     HomeComponent,
-    ListSuggestionComponent
+    NotFoundComponent,
+    NavComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    AppRoutingModule
-    
+    CommonModule,      // AJOUTÉ : Pour le pipe 'date' et 'ngClass'
+    AppRoutingModule,
+    FormsModule,       // AJOUTÉ : Pour corriger l'erreur [(ngModel)]
+    ReactiveFormsModule // GARDÉ : Pour votre userForm
   ],
-  providers: [],
+  providers: [
+    provideClientHydration()
+  ],
   bootstrap: [AppComponent]
-
 })
 export class AppModule { }
